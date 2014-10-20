@@ -1,0 +1,38 @@
+{
+  "name": "v2ex-api",
+  "version": "1.0.2",
+  "description": "v2ex api for nodejs .",
+  "main": "index.js",
+	"bin": {
+		"v2ex": "bin/v2ex"
+	},
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "colors": "^1.0.3",
+    "commander": "^2.3.0",
+    "request": "^2.45.0",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/song940/node-v2ex.git"
+  },
+  "keywords": [
+    "v2ex",
+    "api",
+    "sdk",
+    "cli"
+  ],
+  "author": "lsong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/song940/node-v2ex/issues"
+  },
+  "homepage": "https://github.com/song940/node-v2ex"
+}
