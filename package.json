@@ -1,6 +1,6 @@
 {
   "name": "v2ex-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "v2ex api for nodejs .",
   "main": "index.js",
 	"bin": {

@@ -1,11 +1,11 @@
 ## v2ex ![npm](https://badge.fury.io/js/v2ex.png)
 
-v2ex SDK for nodejs
+v2ex API for nodejs .
 
 ### Installation
 
 ````
-$ [sudo] npm install [-g] v2ex [--save]
+$ [sudo] npm install [-g] v2ex-api [--save]
 ````
 
 
@@ -29,7 +29,11 @@ $ [sudo] npm install [-g] v2ex [--save]
 ### Example
 
 ````javascript
-var v2ex = require('v2ex');
+var V2EX = require('v2ex-api');
+
+var v2ex = new V2EX({ 
+	api: 'https://v2ex.com/api' 
+});
 
 v2ex.latest(function(err, topics){
 	console.log(topics);
