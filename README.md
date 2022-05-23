@@ -1,8 +1,6 @@
 ## v2ex ![npm](https://badge.fury.io/js/v2ex.png)
 
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/song940/v2ex-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-v2ex API for nodejs .
+V2EX API for Node.js
 
 ### Installation
 
@@ -31,9 +29,9 @@ $ [sudo] npm install [-g] v2ex-api [--save]
 ### Example
 
 ````javascript
-var V2EX = require('v2ex-api');
+const V2EX = require('v2ex-api');
 
-var v2ex = new V2EX({ 
+const v2ex = new V2EX({ 
 	api: 'https://v2ex.com/api' 
 });
 
