@@ -1,85 +1,15 @@
 #!/usr/bin/env node
 
-import { V2EX } from '../index.js';
+import * as v2ex from '../index.js';
 
-const v2ex = new V2EX({
-  api: 'https://v2ex.com/api'
-});
+// console.log('选择分类');
+// console.log();
+// console.log('+ 热门');
+// console.log('+ 最新');
 
-// program
-// 	.version(package.version)
-// 	.usage('[command] [options]')
-// 	.option('-t, --hot [id]', 'top 10 of topics')
-// 	.option('-l, --latest [id]', 'all topics')
-// 	.option('-n, --node <name>', 'node info')
-// 	.option('-u, --profile <user>', 'member info')
-// 	.parse(process.argv);
-
-// var render = function(topics){
-// 	topics.forEach(function(topic){
-// 		console.log('%s %s', ('#' + topic.id).gray, topic.title);
-// 	});
-// };
-
-// var renderTopic = function(topic){
-// 	console.log('%s %s',('#' + topic.id).gray , topic.title);
-// 	console.log('---');
-// 	console.log(topic.url);
-// 	console.log('---');
-// 	console.log((topic.content).gray);
-// 	v2ex.getReplies(topic.id, function(err, replies){
-// 		replies.forEach(function(reply){
-// 			console.log('---');
-// 			console.log('%s <%s> at %s', reply.member.username,('#' + reply.member.id).gray, new Date(reply.created * 1000));
-// 			console.log(reply.content.gray);
-// 		});
-// 	});
-// };
-
-// var showTopics = function(err, topics){
-// 	if(err) return console.error(err);
-// 	if(program.hot === true || program.latest == true){
-// 		render(topics);
-// 	}else{
-// 		var topic = _.find(topics, { id : parseInt(program.hot || program.latest) });
-// 		renderTopic(topic);
-// 	}
-// };
-
-// if(program.hot){
-// 	v2ex.hot(showTopics);
-// }else if(program.latest){
-// 	v2ex.latest(showTopics);
-// }
-
-// if(program.node){
-// 	v2ex.node( program.node , function(err, info){
-// 		console.log('%s <%s>', info.title, ('#' + info.name).gray);
-// 		console.log('Topics: %s', info.topics);
-// 		console.log(info.url);
-// 		console.log(info.header);
-// 	});
-// }
-
-// if(program.profile){
-// 	v2ex.profile(program.profile, function(err, profile){
-// 		console.log('%s %s',('#' + profile.id).gray, (profile.username).green);
-// 		console.log('---');
-// 		console.log('%s', profile.url);
-// 		console.log('Location\t : %s', profile.location);
-// 		console.log('HomePage\t : %s', profile.website);
-// 		console.log('GitHub  \t : https://github.com/%s', profile.github);
-// 		console.log('Twitter \t : https://twitter.com/%s', profile.twitter);
-// 		console.log('---');
-// 		console.log('%s', (profile.bio));
-// 	});
-// }
-
-// var flag_count = 0;
-// ([ 'hot', 'node', 'latest', 'profile' ]).forEach(function(cmd){
-// 	if( program[ cmd ] ) flag_count++;
-// });
-
-// if(flag_count == 0){
-// 	program.help();
-// }
+(async () => {
+  const topics = await v2ex.hot();
+  for(const topic of topics) {
+    console.log(`[${topic.node.title}]\t\t${topic.title}`);
+  }
+})();

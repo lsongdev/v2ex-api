@@ -1,4 +1,4 @@
-import v2ex from '../index.js';
+import * as v2ex from '../index.js';
 
 (async () => {
 

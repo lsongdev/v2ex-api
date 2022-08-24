@@ -13,35 +13,35 @@ const readStream = stream => {
   });
 };
 
-export class V2EX {
-  constructor({ api = `https://v2ex.com/api` } = {}) {
-    this.api = api;
-  }
-  async request(path) {
-    const response = await get(this.api + path);
-    const data = await readStream(response);
-    return JSON.parse(data);
-  }
-  me(id) {
-    let field = 'id';
-    if (/^@/.test(id)) {
-      id = id.substr(1);
-      field = 'username';
-    }
-    return this.request(`/members/show.json?${field}=${id}`);
-  }
-  hot() {
-    return this.request(`/topics/hot.json`);
-  }
-  latest() {
-    return this.request(`/topics/latest.json`);
-  }
-  node(name) {
-    return this.request(`/nodes/show.json?name=${name}`);
-  }
-  replies(topicId) {
-    return this.request(`/replies/show.json?topic_id=${topicId}`);
-  }
-}
+const V2EX_API = `https://v2ex.com/api`;
 
-export default new V2EX();
+export const getJSON = async (path) => {
+  const response = await get(V2EX_API + path);
+  const data = await readStream(response);
+  return JSON.parse(data);
+};
+
+export const profile = id => {
+  let field = 'id';
+  if (/^@/.test(id)) {
+    id = id.substr(1);
+    field = 'username';
+  }
+  return getJSON(`/members/show.json?${field}=${id}`);
+};
+
+export const hot = () => {
+  return getJSON(`/topics/hot.json`);
+};
+
+export const latest = () => {
+  return getJSON(`/topics/latest.json`);
+};
+
+export const node = name => {
+  return getJSON(`/nodes/show.json?name=${name}`);
+};
+
+export const replies = topicId => {
+  return getJSON(`/replies/show.json?topic_id=${topicId}`);
+};
