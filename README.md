@@ -29,16 +29,11 @@ $ [sudo] npm install [-g] v2ex-api [--save]
 ### Example
 
 ````javascript
-const V2EX = require('v2ex-api');
+import * as v2ex from 'v2ex-api';
 
-const v2ex = new V2EX({ 
-	api: 'https://v2ex.com/api' 
-});
-
-v2ex.latest(function(err, topics){
-	console.log(topics);
-});
-
+const topics = await v2ex.hot();
+const topics = await v2ex.latest();
+const node   = await v2ex.node("android");
 ````
 
 ### Contributing
