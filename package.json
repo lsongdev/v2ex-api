@@ -1,6 +1,6 @@
 {
   "name": "v2ex-api",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "type": "module",
   "description": "v2ex api for nodejs .",
   "main": "index.js",
@@ -11,6 +11,7 @@
     "test": "test"
   },
   "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {
